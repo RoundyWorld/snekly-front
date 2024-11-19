@@ -68,18 +68,30 @@ export default function AccordianSet({
               id={`${item.title}-header`}
             >
               <>
-                <span style={{ marginRight: "1rem" }}>{item.icon}</span>
+                <span
+                  style={{
+                    marginRight: "1rem",
+                    color: "var(--foreground-secondary)",
+                  }}
+                >
+                  {item.icon}
+                </span>
                 <Typography component="h3" variant="subtitle1">
                   {item.title}, {item.company}
-                  <br /> <sub>{item.summary}</sub>
+                  <br />{" "}
+                  <sub style={{ color: "var(--foreground-secondary)" }}>
+                    {item.summary}
+                  </sub>
                 </Typography>
               </>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails sx={{ mx: 1.5 }}>
               <Typography
                 variant="body1"
                 gutterBottom
-                sx={{ maxWidth: { sm: "100%", md: "100%" } }}
+                sx={{
+                  maxWidth: { sm: "100%", md: "100%" },
+                }}
                 component={"span"}
               >
                 <ul>

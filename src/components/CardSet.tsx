@@ -29,7 +29,6 @@ export default function CardSet({ sectionTitle, content }: CardSetProps) {
         flexDirection: "column",
         alignItems: "center",
         gap: { xs: 3, sm: 6 },
-        width: "100%",
       }}
     >
       <Box
@@ -50,7 +49,7 @@ export default function CardSet({ sectionTitle, content }: CardSetProps) {
           {sectionTitle}
         </Typography>
       </Box>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{ width: "100%", px: 1 }}>
         {content.map((repository, index) => (
           <Grid
             size={{ xs: 12, sm: 6, md: 4 }}
@@ -65,34 +64,29 @@ export default function CardSet({ sectionTitle, content }: CardSetProps) {
                 justifyContent: "space-between",
                 flexGrow: 1,
                 textAlign: "left",
+                padding: 1,
               }}
             >
-              <CardHeader
-                titleTypographyProps={{ noWrap: true }}
-                title={repository.title}
-                subheader={repository.description}
-                // <Link href={repository.link} target="_blank" rel="noopener">
-                //   {repository.link}
-                // </Link>
-                // }
-              />
+              <Link
+                href={repository.link}
+                target="_blank"
+                rel="noopener"
+                color="inherit"
+                underline="none"
+              >
+                <CardHeader
+                  title={repository.title}
+                  subheader={repository.description}
+                />
+              </Link>
               <CardContent>
-                {/* <Typography
-                  variant="body1"
-                  gutterBottom
-                  sx={{ color: "text.secondary" }}
-                >
-                  {repository.description}
-                </Typography> */}
                 {repository.tools && (
                   <Typography
                     variant="body2"
                     gutterBottom
                     sx={{ color: "text.secondary" }}
                   >
-                    Tools:
-                    <br />
-                    {repository.tools.join(", ")}
+                    Tools: {repository.tools.join(", ")}
                   </Typography>
                 )}
               </CardContent>

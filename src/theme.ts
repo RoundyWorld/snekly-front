@@ -65,19 +65,25 @@ export const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
-        text:{
-          primary: 'var(--snekly-secondary)',
-          secondary: 'var(--snekly-primary)',
+        background: {
+          default: 'var(--background)',
+          paper: 'var(--background-secondary)',
         },
-        // The best part is that you can refer to the variables wherever you like 🤩
-
+        text:{
+          primary: 'var(--foreground)',
+          secondary: 'var(--foreground-secondary)',
+        },
       },
     },
     dark: {
       palette: {
+        background: {
+          default: 'var(--background)',
+          paper: 'var(--background-secondary)',
+        },
         text:{
-          primary: 'var(--snekly-secondary)',
-          secondary: 'var(--snekly-primary)',
+          primary: 'var(--foreground)',
+          secondary: 'var(--foreground-secondary)',
         },
     },
   },

@@ -14,6 +14,7 @@ export default function Footer() {
         alignItems: "center",
         py: { xs: 3, sm: 5 },
         textAlign: { sm: "center", md: "left" },
+        color: "text.secondary",
       }}
     >
       <Box
@@ -50,7 +51,6 @@ export default function Footer() {
           spacing={1}
           useFlexGap
           sx={{ justifyContent: "left" }}
-          // sx={{ justifyContent: 'left', color: 'text.secondary' }}
         >
           <IconButton
             color="inherit"
