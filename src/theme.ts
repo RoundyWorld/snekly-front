@@ -65,25 +65,57 @@ export const theme = createTheme({
   colorSchemes: {
     light: {
       palette: {
+        primary: {
+          main: '#6ea7dc',
+          contrastText: '#005ba6',
+        },
+        secondary: {
+          main: '#6ea7dc',
+          contrastText: '#005ba6',
+        },
+        info: {
+          main: '#6ea7dc',
+          contrastText: '#005ba6',
+        },
         background: {
           default: 'var(--background)',
+          defaultChannel: 'var(--backgroxund)',
           paper: 'var(--background-secondary)',
+          paperChannel: 'var(--background-secondary)',
         },
         text:{
           primary: 'var(--foreground)',
+          primaryChannel: 'var(--foreground)',
           secondary: 'var(--foreground-secondary)',
+          secondaryChannel: 'var(--foreground-secondary)',
         },
       },
     },
     dark: {
       palette: {
+        primary: {
+          main: '#fc0303',
+          contrastText: '#45fc03',
+        },
+        secondary: {
+          main: '#df03fc',
+          contrastText: '#0349fc',
+        },
+        info: {
+          main: '#6ea7dc',
+          contrastText: '#005ba6',
+        },
         background: {
           default: 'var(--background)',
+          defaultChannel: 'var(--background)',
           paper: 'var(--background-secondary)',
+          paperChannel: 'var(--background-secondary)',
         },
         text:{
           primary: 'var(--foreground)',
+          primaryChannel: 'var(--foreground)',
           secondary: 'var(--foreground-secondary)',
+          secondaryChannel: 'var(--foreground-secondary)',
         },
     },
   },

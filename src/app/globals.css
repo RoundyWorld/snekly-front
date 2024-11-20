@@ -3,8 +3,8 @@
   --background-secondary: #f9f9f9;
   --foreground: #171717;
   --foreground-secondary: #6b6b6b;
-  --snekly-primary: #ff5a5f;
-  --snekly-secondary: #00a699;
+  --snekly-primary: #6ea7dc;
+  --snekly-secondary: #005ba6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +13,7 @@
     --background-secondary: #212830;
     --foreground: #f0f6fc;
     --foreground-secondary: #9198a1;
-    --snekly-primary: #ff5a5f;
-    --snekly-secondary: #00a699;
+    --snekly-primary: #6ea7dc;
+    --snekly-secondary: #005ba6;
   }
 }

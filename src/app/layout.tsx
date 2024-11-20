@@ -6,8 +6,9 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "@/theme";
+import { useState } from "react";
 
-const pages = ["about", "profile", "resume"];
+const pages = ["resume", "profile", "about"];
 
 export const metadata: Metadata = {
   title: "Snekly",
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const rootPage = pages[0];
+
   return (
     <html lang="en">
       <body>
@@ -24,7 +27,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CssBaseline />
             <header>
-              <NavBar pages={pages} />
+              <NavBar pages={pages} rootPage={rootPage} />
             </header>
             <main>{children}</main>
             <footer>

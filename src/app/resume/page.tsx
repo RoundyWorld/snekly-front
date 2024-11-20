@@ -6,7 +6,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import AccordianSet from "@/components/AccordianSet";
 import CardSet from "@/components/CardSet";
 import Hero from "@/components/Hero";
-// import SkillsCollection from '@/components/SkillsCollection';
+import SkillsCollection from "@/components/SkillsCollection";
 
 const repositories = [
   {
@@ -92,7 +92,7 @@ export default function Resume() {
         subtitle="My website for pet projects and learning. It is a perpetual work in progress and in recursive refinement. Like me."
       />
       <CardSet sectionTitle="Code for snekly.com" content={repositories} />
-      {/* <SkillsCollection /> */}
+      <SkillsCollection />
       <AccordianSet sectionTitle="Experience" content={jobHistory} />
     </div>
   );
