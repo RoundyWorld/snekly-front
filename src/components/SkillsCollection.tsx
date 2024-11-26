@@ -9,6 +9,7 @@ import LogoTypeScript from "@/assets/logoTypeScript.png";
 import LogoPython from "@/assets/logoPython.png";
 import LogoGCP from "@/assets/logoGCP.png";
 import LogoPostgreSQL from "@/assets/logoPostgreSQL.png";
+// import Image from "next/image";
 
 const logos = [
   {
@@ -127,6 +128,13 @@ export default function SkillsCollection() {
       <Grid container sx={{ justifyContent: "center", mt: 0.5 }}>
         {logos.map((logo, index) => (
           <Grid key={logo.title + index}>
+            {/* <Image
+              src={logo.image}
+              alt={logo.title}
+              width={100}
+              height={80}
+              style={logoStyle}
+            /> */}
             <img src={logo.image} alt={logo.title} style={logoStyle} />
           </Grid>
         ))}
