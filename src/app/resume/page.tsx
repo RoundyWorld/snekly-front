@@ -91,7 +91,11 @@ export default function Resume() {
         title="Lovina Roundy"
         subtitle="My website for pet projects and learning. It is a perpetual work in progress and in recursive refinement. Like me."
       />
-      <CardSet sectionTitle="Code for snekly.com" content={repositories} />
+      <CardSet
+        sectionTitle="Code for snekly.com"
+        content={repositories}
+        cardsInRow={3}
+      />
       <SkillsCollection />
       <AccordianSet sectionTitle="Experience" content={jobHistory} />
     </div>

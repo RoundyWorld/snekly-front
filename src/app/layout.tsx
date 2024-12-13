@@ -7,11 +7,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "@/theme";
 
-const pages = ["resume", "profile", "about"];
+const pages = ["games", "about"];
 
 export const metadata: Metadata = {
   title: "Snekly",
-  description: "Portfolio and Games by Snekly",
+  description: "Games by Snekly",
 };
 
 export default function RootLayout({

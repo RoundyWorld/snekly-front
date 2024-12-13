@@ -6,7 +6,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface AccordianSetProps {

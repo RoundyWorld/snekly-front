@@ -15,9 +15,24 @@ interface CardSetProps {
     link: string;
     tools?: string[];
   }[];
+  cardsInRow: number;
 }
 
-export default function CardSet({ sectionTitle, content }: CardSetProps) {
+const rowSize: { [key: number]: number } = {
+  4: 3,
+  3: 4,
+  2: 6,
+};
+
+// 4 cards = md: 3
+// 3 cards = md: 4
+// 2 cards = md: 6
+
+export default function CardSet({
+  sectionTitle,
+  content,
+  cardsInRow = 3,
+}: CardSetProps) {
   return (
     <Container
       id="cardset"
@@ -52,7 +67,7 @@ export default function CardSet({ sectionTitle, content }: CardSetProps) {
       <Grid container spacing={2} sx={{ width: "100%", px: 1 }}>
         {content.map((repository, index) => (
           <Grid
-            size={{ xs: 12, sm: 6, md: 4 }}
+            size={{ xs: 12, sm: 6, md: rowSize[cardsInRow] }}
             key={index}
             sx={{ display: "flex" }}
           >

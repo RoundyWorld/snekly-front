@@ -2,11 +2,11 @@
 // import styles from "./page.module.css";
 // import NextLink from "next/link";
 // import Link from "@mui/material/Link";
-import Resume from "./resume/page";
+import Games from "./games/page";
 
 export default function Home() {
   return (
-    <Resume />
+    <Games />
     // <div className={styles.page}>
     //   <main className={styles.main}>
     //     <Link href="/about" color="secondary" component={NextLink}>

@@ -68,10 +68,10 @@ const logoStyle = {
   opacity: 0.7,
 };
 
-export default function SkillsCollection() {
+export default function TechCollection() {
   return (
     <Container
-      id="skills"
+      id="tech"
       sx={{
         pt: { xs: 4, sm: 6 },
         pb: { xs: 4, sm: 6 },
@@ -97,34 +97,9 @@ export default function SkillsCollection() {
             textAlign: { sm: "left", md: "center" },
           }}
         >
-          Skills
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ color: "text.secondary" }}
-          component={"span"}
-        >
-          It may be hard for me to say it, but I am an expert. I know many
-          things, I do hard things, and I push forward with a fierce
-          persistence.
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{ color: "text.primary" }}
-          component={"span"}
-        >
-          <ul style={{ textAlign: "left" }}>
-            <li>7+ years software development</li>
-            <li>6+ years professional writing</li>
-            <li>20+ years momming</li>
-            <li>
-              Extensive experience with rest APIs, full-stack development, user
-              interactions, and teen support
-            </li>
-          </ul>
+          Tech
         </Typography>
       </Box>
-
       <Grid container sx={{ justifyContent: "center", mt: 0.5 }}>
         {logos.map((logo, index) => (
           <Grid key={logo.title + index}>

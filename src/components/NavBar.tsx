@@ -16,6 +16,7 @@ import SneklyIcon from "@/components/SneklyIcon";
 import NextLink from "next/link";
 import Avatar from "@mui/material/Avatar";
 import snake from "@/assets/snake.png";
+import { usePathname } from "next/navigation";
 
 interface NavBarProps {
   pages: string[];
@@ -38,7 +39,17 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function NavBar({ pages, rootPage }: NavBarProps) {
-  const [selectedPage, setSelectedPage] = useState(rootPage);
+  const pathname = usePathname();
+  const pathWithoutSlash = pathname.startsWith("/")
+    ? pathname.slice(1)
+    : pathname;
+
+  const [selectedPage, setSelectedPage] = useState(() => {
+    if (pathWithoutSlash === "") return rootPage;
+    else if (pages.includes(pathWithoutSlash)) return pathWithoutSlash;
+    else return "";
+  });
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
