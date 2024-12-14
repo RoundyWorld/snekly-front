@@ -111,6 +111,7 @@ export default function CardSet({
                   href={repository.link}
                   target="_blank"
                   rel="noopener"
+                  variant="outlined"
                 >
                   Go to code
                 </Button>

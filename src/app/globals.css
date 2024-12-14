@@ -5,6 +5,12 @@
   --foreground-secondary: #6b6b6b;
   --snekly-primary: #6ea7dc;
   --snekly-secondary: #005ba6;
+  --snekly-pink: #CD8987;
+  --snekly-palepink: #CDACA1;
+  --snekly-button3: #1F0812;
+  --snekly-button4: #FFC145;
+  --snekly-button5: #DE6B48;
+  --snekly-purple: #01017a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +19,5 @@
     --background-secondary: #212830;
     --foreground: #f0f6fc;
     --foreground-secondary: #9198a1;
-    --snekly-primary: #6ea7dc;
-    --snekly-secondary: #005ba6;
   }
 }

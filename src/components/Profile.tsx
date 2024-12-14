@@ -94,7 +94,7 @@ export default function Profile() {
               sx={{ color: "text.secondary" }}
               component={"span"}
             >
-              Middle aged in middle earth, waiting for my next midlife crisis.
+              Middle aged in middle earth, looking for my next midlife crisis.
             </Typography>
             <Typography
               variant="body1"
@@ -113,7 +113,7 @@ export default function Profile() {
             </Typography>
             <Button
               href={`/resume`}
-              variant="text"
+              variant="outlined"
               color="info"
               size="small"
               component={NextLink}

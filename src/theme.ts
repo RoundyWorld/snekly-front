@@ -8,6 +8,14 @@ const roboto = Roboto({
   display: 'swap',
 });
 
+const sneklyPrimary = '#6ea7dc';
+const sneklySecondary = '#005ba6';
+const sneklyPink = '#CD8987';
+const sneklyPalePink = '#CDACA1';
+const sneklyLicorice = '#1F0812';
+const sneklyYellow = '#FFC145';
+const sneklyOrange = '#DE6B48';
+
 export const darkTheme = createTheme({
   cssVariables: true,
   palette: {
@@ -66,24 +74,24 @@ export const theme = createTheme({
     light: {
       palette: {
         primary: {
-          main: '#6ea7dc',
-          contrastText: '#005ba6',
+          main: sneklyPink,
+          contrastText: 'var(--background)',
         },
         secondary: {
           main: '#6ea7dc',
           contrastText: '#005ba6',
         },
         info: {
-          main: '#6ea7dc',
-          contrastText: '#005ba6',
+          main: sneklySecondary,
+          contrastText: sneklyPrimary,
         },
         background: {
           default: 'var(--background)',
-          defaultChannel: 'var(--backgroxund)',
+          defaultChannel: 'var(--background)',
           paper: 'var(--background-secondary)',
           paperChannel: 'var(--background-secondary)',
         },
-        text:{
+        text: {
           primary: 'var(--foreground)',
           primaryChannel: 'var(--foreground)',
           secondary: 'var(--foreground-secondary)',
@@ -94,16 +102,16 @@ export const theme = createTheme({
     dark: {
       palette: {
         primary: {
-          main: '#fc0303',
-          contrastText: '#45fc03',
+          main: sneklyPink,
+          contrastText: 'var(--foreground)',
         },
         secondary: {
           main: '#df03fc',
           contrastText: '#0349fc',
         },
         info: {
-          main: '#6ea7dc',
-          contrastText: '#005ba6',
+          main: sneklyPrimary,
+          contrastText: sneklySecondary,
         },
         background: {
           default: 'var(--background)',
@@ -111,14 +119,15 @@ export const theme = createTheme({
           paper: 'var(--background-secondary)',
           paperChannel: 'var(--background-secondary)',
         },
-        text:{
+        text: {
           primary: 'var(--foreground)',
           primaryChannel: 'var(--foreground)',
           secondary: 'var(--foreground-secondary)',
           secondaryChannel: 'var(--foreground-secondary)',
         },
+      },
     },
   },
-}});
+});
 
 

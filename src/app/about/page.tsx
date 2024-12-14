@@ -40,7 +40,6 @@ export default function About() {
       />
       <TechCollection />
       <Contributors />
-      {/* <CardSet sectionTitle="Contributors" content={contributors} /> */}
     </div>
   );
   // return (
