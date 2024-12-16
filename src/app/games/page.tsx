@@ -7,21 +7,25 @@ const repositories = [
     title: "Hang Man",
     description: "A description",
     link: "A link",
+    buttonText: "go to game",
   },
   {
     title: "Tic Tac Toe",
     description: "A description",
     link: "A link",
+    buttonText: "go to game",
   },
   {
     title: "Word Twist",
     description: "A description",
     link: "A link",
+    buttonText: "go to game",
   },
   {
     title: "Word Sudoku",
     description: "A description",
     link: "A link",
+    buttonText: "go to game",
   },
 ];
 

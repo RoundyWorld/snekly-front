@@ -13,17 +13,20 @@ const repositories = [
     title: "RoundyWorld",
     description: "Github organization for my projects",
     link: "https://github.com/RoundyWorld",
+    buttonText: "go to code",
   },
   {
     title: "snekly-front",
     description: "Frontend for Snekly",
     link: "https://github.com/RoundyWorld/snekly-front",
+    buttonText: "go to code",
     tools: ["React", "Next.js", "TypeScript", "Material-UI"],
   },
   {
     title: "snekly-back (yet to come)",
     description: "Backend for Snekly",
     link: "YET TO COME",
+    buttonText: "go to code",
     tools: ["Python", "FastAPI"],
   },
 ];

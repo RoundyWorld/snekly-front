@@ -13,6 +13,7 @@ interface CardSetProps {
     title: string;
     description: string;
     link: string;
+    buttonText: string;
     tools?: string[];
   }[];
   cardsInRow: number;
@@ -113,7 +114,7 @@ export default function CardSet({
                   rel="noopener"
                   variant="outlined"
                 >
-                  Go to code
+                  {repository.buttonText}
                 </Button>
               </CardActions>
             </Card>
