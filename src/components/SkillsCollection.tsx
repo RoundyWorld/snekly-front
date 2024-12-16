@@ -9,6 +9,8 @@ import LogoTypeScript from "@/assets/logoTypeScript.png";
 import LogoPython from "@/assets/logoPython.png";
 import LogoGCP from "@/assets/logoGCP.png";
 import LogoPostgreSQL from "@/assets/logoPostgreSQL.png";
+import LogoNextJS from "@/assets/logoNextJS.png";
+
 // import Image from "next/image";
 
 const logos = [
@@ -52,6 +54,12 @@ const logos = [
     description: "A JavaScript library for building user interfaces",
     link: "https://reactjs.org/",
     image: LogoReactLogo.src,
+  },
+  {
+    title: "Next.js",
+    description: "The React Framework for Production",
+    link: "https://nextjs.org/",
+    image: LogoNextJS.src,
   },
   {
     title: "Material-UI",
@@ -104,9 +112,8 @@ export default function SkillsCollection() {
           sx={{ color: "text.secondary" }}
           component={"span"}
         >
-          It may be hard for me to say it, but I am an expert. I know many
-          things, I do hard things, and I push forward with a fierce
-          persistence.
+          My destroyed-the-death-star level bullets. Because your time is
+          valuable. So is mine. Lucky for you, my time is purchasable.
         </Typography>
         <Typography
           variant="body1"

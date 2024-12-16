@@ -10,24 +10,24 @@ import SkillsCollection from "@/components/SkillsCollection";
 
 const repositories = [
   {
+    title: "Github Profile",
+    description: "I have a github profile",
+    link: "https://github.com/LovinaRoundy",
+    buttonText: "go to profile",
+    tools: ["Python", "Javascript", "TypeScript"],
+  },
+  {
     title: "RoundyWorld",
-    description: "Github organization for my projects",
+    description: "Github organization for working on projects and mentoring",
     link: "https://github.com/RoundyWorld",
     buttonText: "go to code",
+    tools: ["FastAPI", "React", "Next.js", "Material-UI"],
   },
   {
-    title: "snekly-front",
-    description: "Frontend for Snekly",
-    link: "https://github.com/RoundyWorld/snekly-front",
-    buttonText: "go to code",
-    tools: ["React", "Next.js", "TypeScript", "Material-UI"],
-  },
-  {
-    title: "snekly-back (yet to come)",
-    description: "Backend for Snekly",
-    link: "YET TO COME",
-    buttonText: "go to code",
-    tools: ["Python", "FastAPI"],
+    title: "LinkedIn",
+    description: "Because work-related socialization is important",
+    link: "https://www.linkedin.com/in/lovina-roundy/",
+    buttonText: "go to profile",
   },
 ];
 
@@ -87,18 +87,14 @@ const jobHistory = [
   },
 ];
 
-export default function Resume() {
+export default function LovinaProfile() {
   return (
     <div>
       <Hero
         title="Lovina Roundy"
-        subtitle="My website for pet projects and learning. It is a perpetual work in progress and in recursive refinement. Like me."
+        subtitle="This is my page for shameless self-promotion and personal branding. After reading, you should feel confident in my experience and abilities, and also find me likeable."
       />
-      <CardSet
-        sectionTitle="Code for snekly.com"
-        content={repositories}
-        cardsInRow={3}
-      />
+      <CardSet sectionTitle="Links" content={repositories} cardsInRow={3} />
       <SkillsCollection />
       <AccordianSet sectionTitle="Experience" content={jobHistory} />
     </div>

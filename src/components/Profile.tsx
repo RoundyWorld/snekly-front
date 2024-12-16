@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import lovina from "@/assets/lovina.png";
+import avatarLovina from "@/assets/avatarLovina.png";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import { GitHub, LinkedIn } from "@mui/icons-material";
@@ -30,13 +30,19 @@ export default function Profile() {
         <Grid
           size={{ xs: 12, sm: 6, md: 3 }}
           sx={{ display: "flex" }}
-          //   alignItems="center"
           justifyContent="center"
         >
           <Avatar
             alt="Github Avatar"
-            src={lovina.src}
-            sx={{ width: 150, height: 150 }}
+            src={avatarLovina.src}
+            sx={{
+              width: 150,
+              height: 150,
+              "& > img": { objectFit: "contain" },
+              bgcolor: "white",
+              border: "1px solid",
+              borderColor: "divider",
+            }}
           />
         </Grid>
         <Grid size={{ xs: 12, sm: 6, md: 9 }} sx={{ display: "flex" }}>
@@ -112,7 +118,7 @@ export default function Profile() {
               </ul>
             </Typography>
             <Button
-              href={`/resume`}
+              href={`/profile/lovina`}
               variant="outlined"
               color="info"
               size="small"

@@ -9,6 +9,7 @@ import LogoTypeScript from "@/assets/logoTypeScript.png";
 import LogoPython from "@/assets/logoPython.png";
 import LogoGCP from "@/assets/logoGCP.png";
 import LogoPostgreSQL from "@/assets/logoPostgreSQL.png";
+import LogoNextJS from "@/assets/logoNextJS.png";
 // import Image from "next/image";
 
 const logos = [
@@ -52,6 +53,12 @@ const logos = [
     description: "A JavaScript library for building user interfaces",
     link: "https://reactjs.org/",
     image: LogoReactLogo.src,
+  },
+  {
+    title: "Next.js",
+    description: "The React Framework for Production",
+    link: "https://nextjs.org/",
+    image: LogoNextJS.src,
   },
   {
     title: "Material-UI",
