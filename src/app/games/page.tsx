@@ -1,16 +1,20 @@
 import Hero from "@/components/Hero";
 import CardSet from "@/components/CardSet";
 import React from "react";
+import TicTacToe from "@/components/games/TicTacToe";
 
-const repositories = [
+const games = [
   {
-    title: "Hang Man",
+    title: "Tic Tac Toe",
     description: "A description",
     link: "A link",
     buttonText: "go to game",
   },
+];
+
+const wordGames = [
   {
-    title: "Tic Tac Toe",
+    title: "Hang Man",
     description: "A description",
     link: "A link",
     buttonText: "go to game",
@@ -36,11 +40,9 @@ function Games() {
         title="Games by Snekly"
         subtitle="A collection of games created by Snekly"
       />
-      <CardSet
-        sectionTitle="Word Games"
-        content={repositories}
-        cardsInRow={3}
-      />
+      <CardSet sectionTitle="Games" content={games} cardsInRow={3} />
+      <CardSet sectionTitle="Word Games" content={wordGames} cardsInRow={3} />
+      <TicTacToe />
     </div>
   );
 }
