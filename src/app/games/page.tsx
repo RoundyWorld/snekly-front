@@ -6,9 +6,9 @@ import TicTacToe from "@/components/games/TicTacToe";
 const games = [
   {
     title: "Tic Tac Toe",
-    description: "A description",
+    description: "This is a more different description",
     link: "A link",
-    buttonText: "go to game",
+    buttonText: "start",
   },
 ];
 
