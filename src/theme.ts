@@ -8,13 +8,13 @@ const roboto = Roboto({
   display: 'swap',
 });
 
-const sneklyPrimary = '#6ea7dc';
-const sneklySecondary = '#005ba6';
+export const sneklyPrimary = '#6ea7dc';
+export const sneklySecondary = '#005ba6';
 const sneklyPink = '#CD8987';
 // const sneklyPalePink = '#CDACA1';
-// const sneklyLicorice = '#1F0812';
+export const sneklyLicorice = '#1F0812';
 // const sneklyYellow = '#FFC145';
-// const sneklyOrange = '#DE6B48';
+export const sneklyOrange = '#DE6B48';
 
 export const darkTheme = createTheme({
   cssVariables: true,

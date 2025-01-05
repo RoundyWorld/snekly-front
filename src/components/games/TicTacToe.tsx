@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { Button, Typography } from "@mui/material";
+import { Fragment, useState } from "react";
+import { sneklyLicorice, sneklyOrange } from "@/theme";
 
-// TODO: 1. Replace history button with an undo button.
-//       2. Add a reset button.
-//       3. Appropriately style. Probably in an accordian.
-//       4. Add the option to select a board size.
+// TODO: 1. Continue to improve style.
+//       2. Track wins.
+//       3. Maybe add a win animation.
+//       4. Finish adding the option to select a board size.
 //       5. Add ability to select a win size.
 //       6. Build computer player.
 //        a. Random play
@@ -21,19 +23,14 @@ function Square({ value, onSquareClick }: SquareProps) {
       className="square"
       onClick={onSquareClick}
       style={{
-        color: value === "X" ? "blue" : "red",
-        background: "#fff",
-        border: "1px solid #999",
+        color: value === "X" ? `${sneklyOrange}` : `${sneklyLicorice}`,
+        border: "2px solid #999",
         float: "left",
-        fontSize: "24px",
+        fontSize: "30px",
         fontWeight: "bold",
-        lineHeight: "34px",
-        height: "34px",
-        marginRight: "-1px",
-        marginTop: "-1px",
-        padding: "0",
+        height: "40px",
+        width: "40px",
         textAlign: "center",
-        width: "34px",
       }}
     >
       {value}
@@ -42,29 +39,34 @@ function Square({ value, onSquareClick }: SquareProps) {
 }
 
 interface BoardProps {
+  sideLength: number;
   xTurn: boolean;
   squares: (string | null)[];
+  // setWinner: (winner: string | null) => void;
   onPlay: (nextSquares: (string | null)[]) => void;
 }
 
-function Board({ xTurn, squares, onPlay }: BoardProps) {
-  function calculateWinner(squares: (string | null)[]) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
+function Board({ sideLength, xTurn, squares, onPlay }: BoardProps) {
 
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c])
-        return squares[a];
+  function calculateWinner(squares: (string | null)[]) {
+    // Check rows
+    for (let i = 0; i < squares.length; i += sideLength) {
+      const row = squares.slice(i, i + sideLength);
+      if (row.every((square) => square === row[0])) return row[0];
     }
+    // Check columns
+    for (let i = 0; i < sideLength; i++) {
+      const column = squares.filter((_, j) => j % sideLength === i);
+      if (column.every((square) => square === column[0])) return column[0];
+    }
+    // Check diagonals
+    const diagonal1 = squares.filter((_, i) => i % (sideLength + 1) === 0);
+    if (diagonal1.every((square) => square === diagonal1[0])) return diagonal1[0];
+    const diagonal2 = squares.filter((_, i) => i % (sideLength - 1) === 0 && i > 0 && i < squares.length - 1);
+    if (diagonal2.every((square) => square === diagonal2[0])) return diagonal2[0];
+    // Check CAT
+    if (!squares.some((square) => !square)) return "CAT";
+    
     return null;
   }
 
@@ -76,30 +78,23 @@ function Board({ xTurn, squares, onPlay }: BoardProps) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xTurn ? "X" : "O");
-  }
+  // let status;
+  // if (winner) {
+  //   status = "Winner: " + winner;
+  // } else {
+  //   status = "Next player: " + (xTurn ? "X" : "O");
+  // }
 
   return (
     <>
-      <div className="status">{status}</div>
-      <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+      {winner ? <Typography> WINNER: {winner}</Typography> : <Typography>Next Player: {xTurn ? "X" : "O"}</Typography>}
+      <div>
+        {squares.map((square, i) => (
+          <Fragment key={i} >
+            {i !== 0 && i % sideLength === 0 && <br />}
+            <Square value={square} onSquareClick={() => handleClick(i)} />  
+          </Fragment>
+        ))}
       </div>
     </>
   );
@@ -107,6 +102,8 @@ function Board({ xTurn, squares, onPlay }: BoardProps) {
 
 export default function TicTacToe() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
+  const [sideLength, setSideLength] = useState(3);
+  const [winner, setWinner] = useState<string | null>(null);
   const currentSquares = history[history.length - 1];
   const xTurn = history.length % 2 !== 0;
 
@@ -119,11 +116,12 @@ export default function TicTacToe() {
   }
 
   return (
+    <>
     <div className="game" style={{ display: "flex", flexDirection: "row" }}>
       <div className="game-board">
-        <Board xTurn={xTurn} squares={currentSquares} onPlay={handlePlay} />
+        <Board sideLength={sideLength} xTurn={xTurn} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className="game-info">
+      {/* <div className="game-info">
         <ol>
           {history.map((_, move) => (
             <li key={move}>
@@ -133,7 +131,10 @@ export default function TicTacToe() {
             </li>
           ))}
         </ol>
-      </div>
+      </div> */}
     </div>
+    <Button color="info" variant="contained" onClick={() => jumpTo(history.length - 2)}>Undo</Button>
+    <Button variant="contained" onClick={() => jumpTo(0)}>Reset</Button>
+    </>
   );
 }
