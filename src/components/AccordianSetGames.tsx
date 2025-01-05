@@ -85,7 +85,7 @@ export default function AccordianSetGames({
                 </span>
               </>
             </AccordionSummary>
-            <AccordionDetails sx={{ mx: 1.5 }}>
+            <AccordionDetails sx={{ mx: 4 }}>
               {item.detail}
             </AccordionDetails>
           </Accordion>

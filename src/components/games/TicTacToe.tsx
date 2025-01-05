@@ -1,7 +1,9 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, Typography } from "@mui/material";
 import { Fragment, useState } from "react";
 import { sneklyLicorice, sneklyOrange } from "@/theme";
+import UndoIcon from '@mui/icons-material/Undo';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 // TODO: 1. Continue to improve style.
 //       2. Track wins.
@@ -87,7 +89,6 @@ function Board({ sideLength, xTurn, squares, onPlay }: BoardProps) {
 
   return (
     <>
-      {winner ? <Typography> WINNER: {winner}</Typography> : <Typography>Next Player: {xTurn ? "X" : "O"}</Typography>}
       <div>
         {squares.map((square, i) => (
           <Fragment key={i} >
@@ -96,6 +97,7 @@ function Board({ sideLength, xTurn, squares, onPlay }: BoardProps) {
           </Fragment>
         ))}
       </div>
+      {winner ? <Typography> WINNER: {winner}</Typography> : <Typography>Next Player: {xTurn ? "X" : "O"}</Typography>}
     </>
   );
 }
@@ -115,10 +117,39 @@ export default function TicTacToe() {
     setHistory(history.slice(0, step + 1));
   }
 
+  function handleSideChange(newSide: number) {
+    setSideLength(newSide);
+    setHistory([Array((newSide) * (newSide)).fill(null)]);
+  };
+
   return (
     <>
-    <div className="game" style={{ display: "flex", flexDirection: "row" }}>
-      <div className="game-board">
+    <div style={{ display: "flex", flexDirection: "row", gap: "10px"}}>
+      <div id="tictactoeForm">
+        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+          <InputLabel id="sideLengthLabel">Set Board Size</InputLabel>
+          <Select
+            labelId="sideLengthLabel"
+            id="sideLength"
+            value={sideLength}
+            label="Set Board Size"
+            onChange={(event: SelectChangeEvent<number>) => handleSideChange(Number(event.target.value))}
+            autoWidth
+            style={{ textAlign: "center" }}
+          >
+            {Array.from({ length: 13 }, (_, i) => i + 3).map((value) => (
+              <MenuItem key={value} value={value}>
+                {value}
+              </MenuItem>
+            ))}
+          </Select>
+            <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+              <Button variant="contained" onClick={() => jumpTo(0)} style={{ flex: 1 }}><DeleteIcon/></Button>
+              <Button color="info" variant="contained" onClick={() => jumpTo(history.length - 2)} style={{ flex: 1 }}><UndoIcon/></Button>
+            </div>
+        </FormControl>
+      </div>
+      <div id="tictactoeBoard">
         <Board sideLength={sideLength} xTurn={xTurn} squares={currentSquares} onPlay={handlePlay} />
       </div>
       {/* <div className="game-info">
@@ -133,8 +164,6 @@ export default function TicTacToe() {
         </ol>
       </div> */}
     </div>
-    <Button color="info" variant="contained" onClick={() => jumpTo(history.length - 2)}>Undo</Button>
-    <Button variant="contained" onClick={() => jumpTo(0)}>Reset</Button>
     </>
   );
 }
