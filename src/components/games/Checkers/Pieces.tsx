@@ -1,7 +1,8 @@
 import king from '@/assets/king.png';
 import pawn from '@/assets/pawn.png';
 import { useEffect, useRef, useState } from 'react';
-import { draggable, dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+import { draggable } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
+// import { draggable, dropTargetForElements } from '@atlaskit/pragmatic-drag-and-drop/element/adapter';
 
 
 type PieceProps = {
