@@ -1,5 +1,5 @@
 "use client";
-import { Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Slider, Typography } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, Typography } from "@mui/material";
 import { Fragment, useState } from "react";
 import { sneklyLicorice, sneklyOrange } from "@/theme";
 import UndoIcon from '@mui/icons-material/Undo';
@@ -105,7 +105,7 @@ function Board({ sideLength, xTurn, squares, onPlay }: BoardProps) {
 export default function TicTacToe() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [sideLength, setSideLength] = useState(3);
-  const [winner, setWinner] = useState<string | null>(null);
+  // const [winner, setWinner] = useState<string | null>(null);
   const currentSquares = history[history.length - 1];
   const xTurn = history.length % 2 !== 0;
 
